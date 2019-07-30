@@ -11,13 +11,13 @@
 I want to accelerate the identification process of possible cases of pneumonia [1] in children, in a context where...
 
 * Doctors have more requests (appointments) than the ones they can handle in a timely manner without compromising the patient’s health.
-* Children from country (and rural poor areas) not always have easy access to medical professional but potentially they could have it to quick and primary identification technologies (x-rays); in case of positive or dubious cases, they could be transferred to places with more complex centers and proper medical assistance.
+* Children from country (and rural poor areas) not always have easy access to medical professionals, but -potentially- they could have it to quick and primary machine identification technologies (i.e. x-rays); in case of "positive" or dubious cases, they could be transferred to zones  with more complex centers and proper medical assistance.
 * Poor children could have access to machines (x-ray) outside the health insurance scope as a special precautionary Government Plan).
 
-Why use ML…
-* Possible big amount of information (dataset) even when the current one is still small (sample).
-* It would be a fast identification process.
-* It would help Doctors with the number of patients to treat and set priorities given particular cases
+Why use ML...?
+* Future big amount of information (dataset); even when the [current one is still small](dataset.csv) (take it as a sample).
+* It would be a fast identification process compared with traditional approaches.
+* It would help Doctors with the number of patients to treat and set priorities given the urgency of each case.
 * It could reduce costs (particularly in a big implementation scale) 
 
 [1] Until medical corroboration we will use the conditional.
@@ -31,9 +31,9 @@ Does this x-ray image show the signs of pneumonia?
 * No
 * Not sure
 
-*Note*: For those contributors who pick “Not sure” label, maybe we could add an input so they can provide feedback. This, in cases of uneven answer distribution (example most of them failing) could help us at the time of improving our instructions, examples outside the mandatory task of monitoring the result and adjusting uneven cases. 
+*Note*: For those contributors who pick "Not sure" label, maybe we could add an input so they can provide feedback. This, in cases of uneven answer distribution (example most of them failing) could help us at the time of improving our instructions, examples outside the mandatory task of monitoring the result and adjusting uneven cases. 
 
-Possible answers are Yes/No in case of certainty and Not sure where “classificator” can express incertitude (and potentially share their interpretation)
+Possible answers are Yes/No in case of certainty and Not sure where "classificator" can express incertitude (and potentially share their interpretation)
 
 ## Test Questions & Quality Assurance
 
@@ -43,9 +43,9 @@ Considering the size of this dataset, how many test questions did you develop to
 
 This dataset has 118 rows. Figure Eight (in its Best Practices section for Test Questions) recommends having between 50 to 100. 
 I talked with my mentor and we both agreed that a good formula would be 8 questions per every 100 rows. So, in this case we could have 8 or 9 test questions.
-The rubric (as well) stipules: “You should plan to include at least 5% test questions to mix into your training set or about 1 test question for every 19 data points you want to label”.
+The rubric (as well) stipules: "You should plan to include at least 5% test questions to mix into your training set or about 1 test question for every 19 data points you want to label".
 We also want to have a proper distribution. For 2 real labels (Yes/No) each one should represent 50% (we want to train our contributors to all possibilities in our dataset, avoiding biases).
-The label “Not Sure” is just to cover failing cases (where contributor cannot decide). We don’t provide “Not Sure” examples given that we would end biasing classificators and setting falsie scenarios: we are the ones who have to ensure answer certainty in the Quality process and the data which classificators are going to contrast against their answers.
+The label "Not Sure" is just to cover failing cases (where contributor cannot decide). We don’t provide "Not Sure" examples given that we would end biasing classificators and setting falsie scenarios: we are the ones who have to ensure answer certainty in the Quality process and the data which classificators are going to contrast against their answers.
 
 ### Improving a Test Question
 
@@ -97,16 +97,16 @@ This, plus monitoring the results should ensure a well-designed model and job.
 
 ## Preliminary observations…
 
-1.	When I started scoping the project, the trigger question was “Is this a case of pneumonia…?”. However, after some reflection, I switched to “Does this x-ray image show the signs of pneumonia?”.
-Classificators probably are not going to be Doctors, so answering to “Is this a case of pneumonia?” would suppose and undercover diagnosis. Also, given the shortness but powerful impact of the question (read it aloud) we could propitiate 2 biases:
+1.	When I started scoping the project, the trigger question was "Is this a case of pneumonia…?". However, after some reflection, I switched to "Does this x-ray image show the signs of pneumonia?".
+Classificators probably are not going to be Doctors, so answering to "Is this a case of pneumonia?" would suppose and undercover diagnosis. Also, given the shortness but powerful impact of the question (read it aloud) we could propitiate 2 biases:
 
     * Push classificators to unconsciously flag everything as pneumonia (in their minds just as a precaution)
 
-    * Open the doors of the middle path selection, “Not sure”, as a way of avoiding imperatives. Related to bias and this label, “Not Sure” (thought for failing scenarios) for logical reasons we avoid any example given that we query against certainties reserving doubt just as the last instance to improve our job description, particularly tips and examples.
+    * Open the doors of the middle path selection, "Not sure", as a way of avoiding imperatives. Related to bias and this label, "Not Sure" (thought for failing scenarios) for logical reasons we avoid any example given that we query against certainties reserving doubt just as the last instance to improve our job description, particularly tips and examples.
 
-We want (as well) to keep the focus on the x-ray image and its interpretation, not try to “diagnose” nor give space to the human emotion or empathy (for the sake of the work, we should avoid any possible subjectivity).
+We want (as well) to keep the focus on the x-ray image and its interpretation, not try to "diagnose" nor give space to the human emotion or empathy (for the sake of the work, we should avoid any possible subjectivity).
 
-2.	In relation to the labels I chose “Yes/No/Not sure”, maybe at future (and after more research) I would change their order. Why…? Well, the interpretation of cloudiness on x-rays could be a little tricky (it can get worse if we have a dataset with most of the cases flagged as “positives” and/or several “positives” in row)the instinctive first reaction could be to pick Yes since it is the first one and the one in repetition. 
+2.	In relation to the labels I chose "Yes/No/Not sure", maybe at future (and after more research) I would change their order. Why…? Well, the interpretation of cloudiness on x-rays could be a little tricky (it can get worse if we have a dataset with most of the cases flagged as "positives" and/or several "positives" in row)the instinctive first reaction could be to pick Yes since it is the first one and the one in repetition. 
 
 ## Credits
 
