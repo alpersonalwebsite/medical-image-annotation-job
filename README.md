@@ -24,7 +24,7 @@ Why use ML...?
 
 ### Choice of Data Labels
 
-What labels did you decide to add to your data? And why did you decide on these labels vs any other option?
+**What labels did you decide to add to your data? And why did you decide on these labels vs any other option?**
 
 Does this x-ray image show the signs of pneumonia?
 * Yes
